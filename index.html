@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root" class="wrapper">
+      <div id="snackbar"></div>
+      <div class="content">
+        <div class="inner_content">
+          <div class="header_content">
+            <h4>Display color</h4>
+            <p id="cg_btn" class="cg_btn">Generate Color</p>
+          </div>
+          <div id="display" class="display"></div>
+          <div class="middle_content">
+            <h4>Change & Copy Color</h4>
+            <div class="btn_group">
+              <p id="save_btn" class="save_btn">Save</p>
+              <p id="copy_btn" class="copy_btn">Copy</p>
+            </div>
+          </div>
+          <div class="mode_input_group">
+            <h5>Select Copy Mode</h5>
+            <div class="radio_input">
+              <div>
+                <input
+                  type="radio"
+                  name="color_mode"
+                  id="color_mode_hex"
+                  value="hex"
+                  checked
+                />
+                <label for="color_mode_hex">Hex</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="color_mode"
+                  id="color_mode_rgb"
+                  value="rgb"
+                />
+                <label for="color_mode_rgb">RGB</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="color_input_area">
+            <div>
+              <h5>Hex</h5>
+              <div class="hex_icon">
+                <span>#</span>
+                <input
+                  placeholder="FFFFFF"
+                  id="hex_input"
+                  class="hex_input color_input"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div>
+              <h5>RGB</h5>
+              <div class="hex_icon">
+                <input
+                  placeholder="RGB(255, 255, 255)"
+                  disabled
+                  id="rgb_input"
+                  class="rgb_input color_input"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h5>Adjust RGB Color</h5>
+            <div class="color_slider">
+              <div>
+                <div class="slider_label">
+                  <p>Red</p>
+                  <p id="slider_label_red">221</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="221"
+                  class="color_slider_input"
+                  id="color_slider_red"
+                />
+              </div>
+              <div>
+                <div class="slider_label">
+                  <p>Green</p>
+                  <p id="slider_label_green">221</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="221"
+                  class="color_slider_input"
+                  id="color_slider_green"
+                />
+              </div>
+              <div>
+                <div class="slider_label">
+                  <p>Blue</p>
+                  <p id="slider_label_blue">221</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="221"
+                  class="color_slider_input"
+                  id="color_slider_blue"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h5>Color Preset</h5>
+            <div id="presets" class="color_preset"></div>
+          </div>
+
+          <div>
+            <h5>Custom Colors</h5>
+            <div id="custom_color" class="custom_color"></div>
+          </div>
+
+          <div>
+            <h5>Background Preferences</h5>
+            <div class="bg_preference">
+              <div>
+                <h6>Image Preview</h6>
+                <div id="bg_preview" class="img_box"></div>
+                <div>
+                  <input
+                    accept="image/png, image/jpeg, image/jpg"
+                    class="img_input"
+                    type="file"
+                    name="image"
+                    id="image"
+                  />
+                  <div class="btn_group">
+                    <p id="upload_btn" class="upload_btn">Upload</p>
+                    <p id="delete_btn" class="delete_btn">Delete</p>
+                  </div>
+                </div>
+              </div>
+              <div id="bg_controller">
+                <div class="select_grout">
+                  <label for="bg_size" class="lead">Background Size</label>
+                  <select class="text-input" name="bg_size" id="bg_size">
+                    <option value="auto">Auto</option>
+                    <option value="inherit">Inherit</option>
+                    <option value="contain">Contain</option>
+                    <option value="cover">Cover</option>
+                  </select>
+                </div>
+                <div class="select_grout">
+                  <label for="bg_size" class="lead">Background Repeat</label>
+                  <select class="text-input" name="bg_size" id="bg_repeat">
+                    <option value="repeat">Repeat</option>
+                    <option value="no-repeat">No Repeat</option>
+                  </select>
+                </div>
+                <div class="select_grout">
+                  <label for="bg_size" class="lead">Background Position</label>
+                  <select class="text-input" name="bg_size" id="bg_position">
+                    <option value="left top">Left Top</option>
+                    <option value="left center">Left Center</option>
+                    <option value="left bottom">Left Bottom</option>
+                    <option value="right top">Right Top</option>
+                    <option value="right center">Right Center</option>
+                    <option value="right bottom">Right Bottom</option>
+                    <option value="center top">Center Top</option>
+                    <option value="center bottom">Center Bottom</option>
+                    <option value="center center">Center Center</option>
+                  </select>
+                </div>
+                <div class="select_grout">
+                  <label for="bg_size" class="lead">Background Attachment</label>
+                  <select class="text-input" name="bg_size" id="bg_attachment">
+                    <option value="inherit">Inherit</option>
+                    <option value="fixed">Fixed</option>
+                    <option value="scroll">Scroll</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js" />
+  </body>
+</html>
